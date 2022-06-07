@@ -4,11 +4,9 @@ import java.io.File;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.cassandra.CqlSessionBuilderCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.cassandra.SessionFactory;
-import org.springframework.data.cassandra.config.CqlSessionFactoryBean;
 import org.springframework.data.cassandra.config.SchemaAction;
 import org.springframework.data.cassandra.config.SessionFactoryFactoryBean;
 import org.springframework.data.cassandra.core.CassandraOperations;
@@ -32,16 +30,16 @@ import com.datastax.oss.driver.api.core.CqlSession;
 @EnableCassandraRepositories(basePackages = { "com.datastax.da.astra.investment.backend.repository" })
 public class AstraConfig {
 
-    @Value("${bundle}")
+    @Value("${bundle.main}")
     private File cloudSecureBundle;
 
-    @Value("${keyspace.primary}")
+    @Value("${keyspace.main}")
     private String keyspace;
 
-    @Value("${username.primary}")
+    @Value("${username.main}")
     private String username;
 
-    @Value("${password.primary}")
+    @Value("${password.main}")
     private String password;
   
     @Bean
